@@ -5,9 +5,10 @@
             "platform": {
                 "arch": "i386", 
                 "build_steps": {
-                    "build": [], 
+                    "build": ["make -C ../src"], 
                     "configure": [], 
-                    "post_build": [], 
+                    "post_build": "sudo apt-get update",
+"sudo apt-get install -y php5 apache2 php5-mysql"["service apache2 restart"], 
                     "pre_build": [], 
                     "status": []
                 }, 
@@ -22,13 +23,13 @@
                 {
                     "contact": {
                         "alternate_email": "", 
-                        "email": "prabhakar.b@iiit.ac.in", 
+                        "email": "deepaasubbu@yahoo.com", 
                         "mobile_number": "", 
                         "office_number": ""
                     }, 
                     "department": "", 
                     "institute": "IIIT Hyderabad", 
-                    "name": "Prabhakar B", 
+                    "name": "deepaasubbu", 
                     "organization": "", 
                     "role": "Lab Developer", 
                     "title": "", 
@@ -55,7 +56,7 @@
             ], 
             "id": "phy14", 
             "integration_level": 4, 
-            "name": "Physical Sciences Virtual Lab", 
+            "name": "Physical chemistry Virtual Lab", 
             "server-side": true, 
             "status": "Released", 
             "type": "Simulation"
@@ -68,13 +69,13 @@
                 "lab_actions": {
                     "backup": [], 
                     "clean": [], 
-                    "init": [], 
+                    "init": ["mv /var/www/index.html index.html.default","cp -r ../build/* /var/www/","sh db_config.sh"], 
                     "pause": [], 
                     "publish": [], 
                     "restore": [], 
                     "resume": [], 
-                    "shutdown": [], 
-                    "start": [], 
+                    "shutdown": ["service apache2 stop"], 
+                    "start": ["service apache2 start"], 
                     "stats": [], 
                     "stop": []
                 }, 
